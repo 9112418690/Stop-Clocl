@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto+Mono&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+.heading {
+  margin: 30px 0;
+  font-size: 2.5rem;
+  font-weight: 600;
+  text-align: center;
+  animation: fadeInDown 1s ease;
+}
+
+.heading a {
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.heading a:hover {
+  color: #b32205;
+  text-shadow: 0 0 20px rgb(27, 25, 175);
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  padding: 40px 20px;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 550px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  animation: fadeInUp 1.2s ease;
+}
+
+.timer-display {
+  font-family: "Roboto Mono", monospace;
+  font-size: 2rem;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.timer-active {
+  animation: pulseGlow 1.5s infinite alternate;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.buttons button {
+  flex: 1 1 120px;
+  max-width: 150px;
+  padding: 12px 0;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#start-timer {
+  background: #4caf50;
+}
+#pause-timer {
+  background: #e67e22;
+}
+#reset-timer {
+  background: #e74c3c;
+}
+#lap-timer {
+  background: #3498db;
+}
+
+.buttons button:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.buttons button:active {
+  transform: scale(0.95);
+}
+
+.laps {
+  margin-top: 40px;
+  width: 90%;
+  max-width: 550px;
+  padding: 20px;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+}
+
+.lap-label {
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #ba0f0fcc;
+  text-align: center;
+}
+
+.lap-list {
+  list-style: none;
+  max-height: 200px;
+  overflow-y: auto;
+  padding: 0;
+}
+
+.lap-list li {
+  background: rgba(0, 0, 0, 0.25);
+  padding: 10px 15px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  font-family: "Roboto Mono", monospace;
+  color: #fff;
+  transition: transform 0.2s ease, opacity 0.4s ease;
+  opacity: 0;
+  animation: fadeIn 0.5s forwards;
+}
+
+.lap-list li:hover {
+  transform: scale(1.02);
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.lap-list::-webkit-scrollbar {
+  width: 6px;
+}
+.lap-list::-webkit-scrollbar-thumb {
+  background: #4e0202;
+  border-radius: 10px;
+}
+
+@media (max-width: 600px) {
+  .heading {
+    font-size: 2rem;
+  }
+  .timer-display {
+    font-size: 1.5rem;
+    padding: 15px;
+  }
+  .buttons button {
+    flex: 1 1 100px;
+    max-width: 120px;
+    font-size: 0.9rem;
+    padding: 10px 0;
+  }
+  .lap-label {
+    font-size: 1.2rem;
+  }
+}
+
+@keyframes pulseGlow {
+  from {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+  }
+  to {
+    box-shadow: 0 0 25px rgba(215, 0, 0, 0.9);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
